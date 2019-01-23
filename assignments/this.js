@@ -33,13 +33,13 @@ sayAge();
 
 // code example for Implicit Binding
 
-let me = {
-  name: "Sorin",
-  age: 29,
-  sayName: function() {
-    console.log("My name is ${this.name}");
-  }
-};
+// let me = {
+//   name: "Sorin",
+//   age: 29,
+//   sayName: function() {
+//     console.log("My name is ${this.name}");
+//   }
+// };
 
 // Principle 3
 
@@ -58,11 +58,11 @@ var tiger = new Animal("yellow", "Tyger");
 
 // code example for Explicit Binding
 
-let sayName = function() {
-  console.log("My name is " + this.name);
-};
-let me = {
-  name: "Sorin",
-  age: 29
-};
-sayName.call(me);
+// let sayName = function() {
+//   console.log("My name is " + this.name);
+// };
+// let me = {
+//   name: "Sorin",
+//   age: 29
+// };
+// sayName.call(me);

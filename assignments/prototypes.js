@@ -129,3 +129,40 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+function Villan(villanAtributes){
+    Humanoid.call(this,villanAtributes);
+    this.rank=villanAtributes.rank;
+    this.planet=villanAtributes.planet;
+}
+
+Villan.prototype=Object.create(Humanoid.prototype);
+
+function Hero(heroAtributes){
+    Humanoid.call(this,heroAtributes);
+    this.rank=heroAtributes.rank;
+    this.planet=heroAtributes.planet;
+}
+
+Hero.prototype=Object.create(Humanoid.prototype);
+
+
+const hero = {
+  name: "Obi-Wan Kenobi",
+  rank: "jedi master",
+  planet: "Tatooine",
+  healthPoints: 5,
+  weapons: ["ligth saber", "force"],
+  team: 'Master Yoda team',
+};
+
+const villan = {
+    name: 'Darth Vader',
+    rank: 'sith master',
+    planet: 'Tatooine',
+    healthPoints:'5',
+    weapons:['light saber', 'dark side of the force'],
+    team: 'Empire Team',
+};
+
+

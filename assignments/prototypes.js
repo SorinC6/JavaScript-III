@@ -64,6 +64,16 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`;
 };
 
+Humanoid.prototype.damage=function(name){
+    if(this.healthPoints>1){
+        this.healthPoints--;
+        console.log(`${this.name} from team ${this.team} has ${this.healthPoints} left`);
+    }
+    else {
+        console.log(`${this.name} is dead`);
+    }
+}
+
 /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -137,6 +147,9 @@ function Villan(villanAtributes){
 }
 
 Villan.prototype=Object.create(Humanoid.prototype);
+Villan.prototype.attack=function(oponent){
+    oponent.damage();
+}
 
 function Hero(heroAtributes){
     Humanoid.call(this,heroAtributes);
@@ -145,24 +158,41 @@ function Hero(heroAtributes){
 }
 
 Hero.prototype=Object.create(Humanoid.prototype);
+Hero.prototype.attack=function(oponent){
+    oponent.damage();
+}
 
 
-const hero = {
+const hero = new Hero({
   name: "Obi-Wan Kenobi",
   rank: "jedi master",
   planet: "Tatooine",
   healthPoints: 5,
   weapons: ["ligth saber", "force"],
   team: 'Master Yoda team',
-};
+});
 
-const villan = {
+const villan = new Villan({
     name: 'Darth Vader',
     rank: 'sith master',
     planet: 'Tatooine',
     healthPoints:'5',
     weapons:['light saber', 'dark side of the force'],
     team: 'Empire Team',
-};
+});
+
+hero.attack(villan);
+hero.attack(villan);
+villan.attack(hero);
+villan.attack(hero);
+villan.attack(hero);
+villan.attack(hero);
+villan.attack(hero);
+
+
+
+
+
+
 
 
